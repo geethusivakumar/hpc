@@ -1,0 +1,64 @@
+Options +FollowSymLinks
+
+RewriteEngine On
+
+RewriteBase /
+RewriteRule ^index.html?$ index.php
+RewriteRule ^hpccourses?$ courses.php
+
+RewriteCond %{HTTP_HOST} ^3\.13.88.16$
+RewriteRule ^(.*)$ https://www.hpcfire.com/HPC-U/$1 [L,R=301]
+
+RewriteRule ^([404]+)$ index1.php?home=$1
+
+
+RewriteRule ^sadashboard?$ sahome.php
+RewriteRule ^saadmins?$ admin_register.php
+RewriteRule ^sapassword?$ superadminpass.php
+RewriteRule ^view_employees?$ viewemployees.php
+RewriteRule ^view_customers?$ viewcustomers.php
+RewriteRule ^view_courses?$ viewcourses.php
+RewriteRule ^assignedemployees?$ coursesassignedtoemployees.php
+RewriteRule ^assignedcustomers?$ coursesassignedtocustomers.php
+RewriteRule ^userquizresults?$ user_quizresults.php
+RewriteRule ^userresults-([0-9]+)$ user_results.php?courseid=$1
+RewriteRule ^usercertificates?$ user_certificates.php
+
+RewriteRule ^login?$ login.php
+RewriteRule ^login-([0-9]+)?$ login.php?session_expire=$1
+RewriteRule ^logout?$ logout.php
+
+RewriteRule ^admindashboard?$ adminhome.php
+RewriteRule ^adminpassword?$ adminpass.php
+RewriteRule ^admin_employees?$ adminemployee.php
+RewriteRule ^admin_customers?$ admincustomer.php
+RewriteRule ^admin_courses?$ admincourse.php
+RewriteRule ^coursechapters?$ course_chapters.php
+RewriteRule ^add_chapter-([0-9]+)$ addchapter.php?courseid=$1
+RewriteRule ^coursetoemployees?$ course2employees.php
+RewriteRule ^assign_course_to_employees-([0-9]+)$ assigntoemployees.php?courseid=$1
+RewriteRule ^coursetocustomers?$ course2customers.php
+RewriteRule ^assign_course_to_customers-([0-9]+)$ assigntocustomers.php?courseid=$1
+RewriteRule ^onlinequiz?$ addquiz.php
+RewriteRule ^editquiz-([0-9]+)?$ editquiz.php?quiz_id=$1
+RewriteRule ^checkquizresults?$ admincheck.php
+RewriteRule ^results-([0-9]+)$ checkresults.php?courseid=$1
+RewriteRule ^coursecertificates?$ admincheckcertificates.php
+
+RewriteRule ^employeedashboard?$ employeehome.php
+RewriteRule ^emppassword?$ employeepassword.php
+RewriteRule ^start_course-([0-9]+)$ startcourse.php?courseid=$1
+RewriteRule ^start_course-([0-9]+)-([a-z]+)-([0-9]+)$ startcourse.php?courseid=$1&chap_details=$2&chap_id=$3
+RewriteRule ^employeecourses?$ empcourses.php
+RewriteRule ^employeequizresults?$ empresults.php
+RewriteRule ^emp_results-([0-9]+)$ empcheckresults.php?courseid=$1
+RewriteRule ^employeecertificates?$ empcertificates.php
+
+RewriteRule ^customerdashboard?$ customerhome.php
+RewriteRule ^cuspassword?$ customerpassword.php
+RewriteRule ^customer_course-([0-9]+)$ customercourse.php?courseid=$1
+RewriteRule ^customer_course-([0-9]+)-([a-z]+)-([0-9]+)$ customercourse.php?courseid=$1&chap_details=$2&chap_id=$3
+RewriteRule ^cuscourses?$ cuscourses.php
+RewriteRule ^customerquizresults?$ cusresults.php
+RewriteRule ^cus_results-([0-9]+)$ cuscheckresults.php?courseid=$1
+RewriteRule ^customercertificates?$ cuscertificates.php
